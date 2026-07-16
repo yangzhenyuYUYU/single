@@ -1,0 +1,38 @@
+{
+	"name": "next-frontend",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"api:generate": "openapi-typescript src/api/generated/openapi.json --output src/api/generated/schema.ts",
+		"dev": "pnpm --workspace-root api:generate && next dev --turbo --port 3100",
+		"build": "pnpm --workspace-root api:generate && next build",
+		"start": "next start --port 3100",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"next": "16.2.10",
+		"openapi-ts-fetch": "2.2.0",
+		"react": "19.2.7",
+		"react-dom": "19.2.7",
+		"zod": "3.24.1"
+	},
+	"devDependencies": {
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "22.10.7",
+    "@types/react": "19.2.3",
+    "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.7.3",
+    "vitest": "^2.1.0"
+  }
+}
